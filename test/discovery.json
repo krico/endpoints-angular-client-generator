@@ -1,0 +1,26 @@
+{
+  "kind": "discovery#restDescription",
+  "etag": "\"XYZ\"",
+  "discoveryVersion": "v1",
+  "id": "brain:v1",
+  "name": "brain",
+  "version": "v1",
+  "description": "The Brain",
+  "ownerDomain": "nowhere.com",
+  "ownerName": "Brain",
+  "icons": {
+    "x16": "http://www.google.com/images/icons/product/search-16.gif",
+    "x32": "http://www.google.com/images/icons/product/search-32.gif"
+  },
+  "protocol": "rest",
+  "baseUrl": "https://brain.appspot.com/_ah/api/brain/v1/",
+  "basePath": "/_ah/api/brain/v1/",
+  "rootUrl": "https://brain.appspot.com/_ah/api/",
+  "servicePath": "brain/v1/",
+  "batchPath": "batch",
+  "parameters": {},
+  "auth": {},
+  "schemas": {},
+  "methods": {},
+  "resources": {}
+}

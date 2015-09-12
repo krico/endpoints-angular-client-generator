@@ -1,0 +1,3211 @@
+{
+  "kind": "discovery#restDescription",
+  "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/961K4OezlVmpphfRzVpQIpzvc_M\"",
+  "discoveryVersion": "v1",
+  "id": "jasify:v1",
+  "name": "jasify",
+  "version": "v1",
+  "description": "Jasify Schedule",
+  "ownerDomain": "jasify.com",
+  "ownerName": "Jasify",
+  "icons": {
+    "x16": "http://www.google.com/images/icons/product/search-16.gif",
+    "x32": "http://www.google.com/images/icons/product/search-32.gif"
+  },
+  "protocol": "rest",
+  "baseUrl": "https://jasify-schedule.appspot.com/_ah/api/jasify/v1/",
+  "basePath": "/_ah/api/jasify/v1/",
+  "rootUrl": "https://jasify-schedule.appspot.com/_ah/api/",
+  "servicePath": "jasify/v1/",
+  "batchPath": "batch",
+  "parameters": {
+    "alt": {
+      "type": "string",
+      "description": "Data format for the response.",
+      "default": "json",
+      "enum": [
+        "json"
+      ],
+      "enumDescriptions": [
+        "Responses with Content-Type of application/json"
+      ],
+      "location": "query"
+    },
+    "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response.",
+      "location": "query"
+    },
+    "key": {
+      "type": "string",
+      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+      "location": "query"
+    },
+    "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user.",
+      "location": "query"
+    },
+    "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks.",
+      "default": "true",
+      "location": "query"
+    },
+    "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+      "location": "query"
+    },
+    "userIp": {
+      "type": "string",
+      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+      "location": "query"
+    }
+  },
+  "auth": {
+    "oauth2": {
+      "scopes": {
+        "https://www.googleapis.com/auth/userinfo.email": {
+          "description": "View your email address"
+        }
+      }
+    }
+  },
+  "schemas": {
+    "ActivityPackageSubscription": {
+      "id": "ActivityPackageSubscription",
+      "type": "object",
+      "properties": {
+        "activityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "activityPackageId": {
+          "type": "string"
+        }
+      }
+    },
+    "HistoryTypeEnum": {
+      "id": "HistoryTypeEnum",
+      "type": "string",
+      "enum": [
+        "AccountCreated",
+        "AccountCreationFailed",
+        "Login",
+        "LoginFailed",
+        "Logout",
+        "Message",
+        "PasswordChanged",
+        "PasswordForgotten",
+        "PasswordForgottenFailed",
+        "PasswordRecovered",
+        "PaymentCancelled",
+        "PaymentExecuted",
+        "SubscriptionCancellationFailed",
+        "SubscriptionCancelled",
+        "SubscriptionCreated",
+        "SubscriptionCreationFailed"
+      ],
+      "enumDescriptions": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "Item": {
+      "id": "Item",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "_any"
+        },
+        "description": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string"
+        },
+        "ordinal": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "units": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "JasAccount": {
+      "id": "JasAccount",
+      "type": "object",
+      "properties": {
+        "balance": {
+          "type": "number",
+          "format": "double"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "JasAccountCollection": {
+      "id": "JasAccountCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasAccount"
+          }
+        }
+      }
+    },
+    "JasActivity": {
+      "id": "JasActivity",
+      "type": "object",
+      "properties": {
+        "activityType": {
+          "$ref": "JasActivityType"
+        },
+        "bookItUrl": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "finish": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "maxSubscriptions": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "subscriptionCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "JasActivityCollection": {
+      "id": "JasActivityCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasActivity"
+          }
+        }
+      }
+    },
+    "JasActivityPackage": {
+      "id": "JasActivityPackage",
+      "type": "object",
+      "properties": {
+        "activityCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "executionCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "string"
+        },
+        "itemCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxExecutions": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "organizationId": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "validUntil": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "JasActivityPackageCollection": {
+      "id": "JasActivityPackageCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasActivityPackage"
+          }
+        }
+      }
+    },
+    "JasActivityPackageRequest": {
+      "id": "JasActivityPackageRequest",
+      "type": "object",
+      "properties": {
+        "activities": {
+          "type": "array",
+          "items": {
+            "$ref": "JasActivity"
+          }
+        },
+        "activityPackage": {
+          "$ref": "JasActivityPackage"
+        }
+      }
+    },
+    "JasActivityPackageSubscription": {
+      "id": "JasActivityPackageSubscription",
+      "type": "object",
+      "properties": {
+        "activityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "JasActivityType": {
+      "id": "JasActivityType",
+      "type": "object",
+      "properties": {
+        "colourTag": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "maxSubscriptions": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "organizationId": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "JasActivityTypeCollection": {
+      "id": "JasActivityTypeCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasActivityType"
+          }
+        }
+      }
+    },
+    "JasAddActivityRequest": {
+      "id": "JasAddActivityRequest",
+      "type": "object",
+      "properties": {
+        "activity": {
+          "$ref": "JasActivity"
+        },
+        "repeatDetails": {
+          "$ref": "JasRepeatDetails"
+        }
+      }
+    },
+    "JasAddActivityTypeRequest": {
+      "id": "JasAddActivityTypeRequest",
+      "type": "object",
+      "properties": {
+        "activityType": {
+          "$ref": "JasActivityType"
+        },
+        "organizationId": {
+          "type": "string"
+        }
+      }
+    },
+    "JasAddUserRequest": {
+      "id": "JasAddUserRequest",
+      "type": "object",
+      "properties": {
+        "login": {
+          "$ref": "JasUserLogin"
+        },
+        "password": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "JasUser"
+        }
+      }
+    },
+    "JasApiInfo": {
+      "id": "JasApiInfo",
+      "type": "object",
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "apiVersion": {
+          "type": "string"
+        },
+        "authenticated": {
+          "type": "boolean"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "orgMember": {
+          "type": "boolean"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "timestampVersion": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "JasChangePasswordRequest": {
+      "id": "JasChangePasswordRequest",
+      "type": "object",
+      "properties": {
+        "newPassword": {
+          "type": "string"
+        },
+        "oldPassword": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "JasCheckoutPaymentRequest": {
+      "id": "JasCheckoutPaymentRequest",
+      "type": "object",
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "cartId": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "PaymentTypeEnum"
+        }
+      }
+    },
+    "JasForgotPasswordRequest": {
+      "id": "JasForgotPasswordRequest",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "JasGroup": {
+      "id": "JasGroup",
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "JasGroupCollection": {
+      "id": "JasGroupCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasGroup"
+          }
+        }
+      }
+    },
+    "JasHistory": {
+      "id": "JasHistory",
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currentUserId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "HistoryTypeEnum"
+        }
+      }
+    },
+    "JasHistoryCollection": {
+      "id": "JasHistoryCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasHistory"
+          }
+        }
+      }
+    },
+    "JasInvoice": {
+      "id": "JasInvoice",
+      "type": "object",
+      "properties": {
+        "downloadUrl": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "viewUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "JasItemDetails": {
+      "id": "JasItemDetails",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "_any"
+        },
+        "description": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string"
+        },
+        "ordinal": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "subItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subItemTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subItems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "units": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "JasListQueryActivitiesRequest": {
+      "id": "JasListQueryActivitiesRequest",
+      "type": "object",
+      "properties": {
+        "activityTypeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fromDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "organizationIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "toDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "JasLoginRequest": {
+      "id": "JasLoginRequest",
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "JasLoginResponse": {
+      "id": "JasLoginResponse",
+      "type": "object",
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "failed": {
+          "type": "boolean"
+        },
+        "failureReason": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "orgMember": {
+          "type": "boolean"
+        },
+        "sessionId": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "JasUser"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "JasNewShoppingCartRequest": {
+      "id": "JasNewShoppingCartRequest",
+      "type": "object",
+      "properties": {
+        "activityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "activityPackageSubscriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "ActivityPackageSubscription"
+          }
+        }
+      }
+    },
+    "JasOrganization": {
+      "id": "JasOrganization",
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "paymentTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "PaymentTypeEnum"
+          }
+        }
+      }
+    },
+    "JasOrganizationCollection": {
+      "id": "JasOrganizationCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasOrganization"
+          }
+        }
+      }
+    },
+    "JasPayment": {
+      "id": "JasPayment",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "expireDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "externalState": {
+          "type": "string"
+        },
+        "fee": {
+          "type": "number",
+          "format": "double"
+        },
+        "id": {
+          "type": "string"
+        },
+        "payerEmail": {
+          "type": "string"
+        },
+        "payerFirstName": {
+          "type": "string"
+        },
+        "payerId": {
+          "type": "string"
+        },
+        "payerLastName": {
+          "type": "string"
+        },
+        "realFee": {
+          "type": "number",
+          "format": "double"
+        },
+        "referenceCode": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "PaymentStateEnum"
+        },
+        "transferId": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "PaymentTypeEnum"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "JasPaymentCollection": {
+      "id": "JasPaymentCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasPayment"
+          }
+        }
+      }
+    },
+    "JasPaymentRequest": {
+      "id": "JasPaymentRequest",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "baseUrl": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "PaymentTypeEnum"
+        }
+      }
+    },
+    "JasPaymentResponse": {
+      "id": "JasPaymentResponse",
+      "type": "object",
+      "properties": {
+        "approveUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "JasProviderAuthenticateRequest": {
+      "id": "JasProviderAuthenticateRequest",
+      "type": "object",
+      "properties": {
+        "callbackUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "JasProviderAuthenticateResponse": {
+      "id": "JasProviderAuthenticateResponse",
+      "type": "object",
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "string"
+        },
+        "failed": {
+          "type": "boolean"
+        },
+        "failureReason": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "orgMember": {
+          "type": "boolean"
+        },
+        "sessionId": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "JasUser"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "JasProviderAuthorizeRequest": {
+      "id": "JasProviderAuthorizeRequest",
+      "type": "object",
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        },
+        "provider": {
+          "$ref": "OAuth2ProviderEnum"
+        }
+      }
+    },
+    "JasProviderAuthorizeResponse": {
+      "id": "JasProviderAuthorizeResponse",
+      "type": "object",
+      "properties": {
+        "authorizeUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "JasRecoverPasswordRequest": {
+      "id": "JasRecoverPasswordRequest",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "JasRepeatDetails": {
+      "id": "JasRepeatDetails",
+      "type": "object",
+      "properties": {
+        "fridayEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mondayEnabled": {
+          "type": "boolean"
+        },
+        "repeatEvery": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "repeatType": {
+          "$ref": "RepeatType"
+        },
+        "repeatUntilType": {
+          "$ref": "RepeatUntilType"
+        },
+        "saturdayEnabled": {
+          "type": "boolean"
+        },
+        "sundayEnabled": {
+          "type": "boolean"
+        },
+        "thursdayEnabled": {
+          "type": "boolean"
+        },
+        "tuesdayEnabled": {
+          "type": "boolean"
+        },
+        "untilCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "untilDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "wednesdayEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "JasSubscription": {
+      "id": "JasSubscription",
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "transaction": {
+          "$ref": "JasTransaction"
+        },
+        "user": {
+          "$ref": "JasUser"
+        }
+      }
+    },
+    "JasSubscriptionCollection": {
+      "id": "JasSubscriptionCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasSubscription"
+          }
+        }
+      }
+    },
+    "JasTransaction": {
+      "id": "JasTransaction",
+      "type": "object",
+      "properties": {
+        "accountRef": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "debit": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "transferRef": {
+          "type": "string"
+        },
+        "unpaid": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "JasTransactionList": {
+      "id": "JasTransactionList",
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "JasTransaction"
+          }
+        }
+      }
+    },
+    "JasUser": {
+      "id": "JasUser",
+      "type": "object",
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "email": {
+          "type": "string"
+        },
+        "emailVerified": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "numericId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "realName": {
+          "type": "string"
+        }
+      }
+    },
+    "JasUserCollection": {
+      "id": "JasUserCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasUser"
+          }
+        }
+      }
+    },
+    "JasUserList": {
+      "id": "JasUserList",
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "JasUser"
+          }
+        }
+      }
+    },
+    "JasUserLogin": {
+      "id": "JasUserLogin",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        }
+      }
+    },
+    "JasUserLoginCollection": {
+      "id": "JasUserLoginCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasUserLogin"
+          }
+        }
+      }
+    },
+    "JasUserSubscription": {
+      "id": "JasUserSubscription",
+      "type": "object",
+      "properties": {
+        "activity": {
+          "$ref": "JasActivity"
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "subscription": {
+          "$ref": "JasSubscription"
+        }
+      }
+    },
+    "JasUserSubscriptionCollection": {
+      "id": "JasUserSubscriptionCollection",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "JasUserSubscription"
+          }
+        }
+      }
+    },
+    "OAuth2ProviderEnum": {
+      "id": "OAuth2ProviderEnum",
+      "type": "string",
+      "enum": [
+        "Facebook",
+        "Google",
+        "PayPal"
+      ],
+      "enumDescriptions": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "PaymentStateEnum": {
+      "id": "PaymentStateEnum",
+      "type": "string",
+      "enum": [
+        "Canceled",
+        "Completed",
+        "Created",
+        "New"
+      ],
+      "enumDescriptions": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "PaymentTypeEnum": {
+      "id": "PaymentTypeEnum",
+      "type": "string",
+      "enum": [
+        "Cash",
+        "Invoice",
+        "PayPal"
+      ],
+      "enumDescriptions": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "RepeatType": {
+      "id": "RepeatType",
+      "type": "string",
+      "enum": [
+        "Daily",
+        "No",
+        "Weekly"
+      ],
+      "enumDescriptions": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "RepeatUntilType": {
+      "id": "RepeatUntilType",
+      "type": "string",
+      "enum": [
+        "Count",
+        "Date"
+      ],
+      "enumDescriptions": [
+        "",
+        ""
+      ]
+    },
+    "ShoppingCart": {
+      "id": "ShoppingCart",
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "grandTotal": {
+          "type": "number",
+          "format": "double"
+        },
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "Item"
+          }
+        },
+        "total": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "_any": {
+      "id": "_any",
+      "type": "any"
+    }
+  },
+  "methods": {
+    "apiInfo": {
+      "id": "jasify.apiInfo",
+      "path": "api-info",
+      "httpMethod": "GET",
+      "response": {
+        "$ref": "JasApiInfo"
+      },
+      "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+      ]
+    }
+  },
+  "resources": {
+    "activities": {
+      "methods": {
+        "add": {
+          "id": "jasify.activities.add",
+          "path": "activities",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasAddActivityRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasActivityCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.activities.get",
+          "path": "activities/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasActivity"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "listQuery": {
+          "id": "jasify.activities.listQuery",
+          "path": "activities-list",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasListQueryActivitiesRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasActivityCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "patch": {
+          "id": "jasify.activities.patch",
+          "path": "activities/{id}",
+          "httpMethod": "PATCH",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasActivity"
+          },
+          "response": {
+            "$ref": "JasActivity"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.activities.query",
+          "path": "activities",
+          "httpMethod": "GET",
+          "parameters": {
+            "activityTypeId": {
+              "type": "string",
+              "location": "query"
+            },
+            "fromDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            },
+            "limit": {
+              "type": "integer",
+              "format": "int32",
+              "location": "query"
+            },
+            "offset": {
+              "type": "integer",
+              "format": "int32",
+              "location": "query"
+            },
+            "organizationId": {
+              "type": "string",
+              "location": "query"
+            },
+            "toDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            }
+          },
+          "response": {
+            "$ref": "JasActivityCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "remove": {
+          "id": "jasify.activities.remove",
+          "path": "activities/{id}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "update": {
+          "id": "jasify.activities.update",
+          "path": "activities/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasActivity",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasActivity"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "activityPackages": {
+      "methods": {
+        "add": {
+          "id": "jasify.activityPackages.add",
+          "path": "activity-packages",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasActivityPackageRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasActivityPackage"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "addActivity": {
+          "id": "jasify.activityPackages.addActivity",
+          "path": "activity-packages-activity/{activityPackageId}/{activityId}",
+          "httpMethod": "POST",
+          "parameters": {
+            "activityId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "activityPackageId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "activityPackageId",
+            "activityId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.activityPackages.get",
+          "path": "activity-packages/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasActivityPackage"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getActivities": {
+          "id": "jasify.activityPackages.getActivities",
+          "path": "activity-packages-activity/{activityPackageId}",
+          "httpMethod": "GET",
+          "parameters": {
+            "activityPackageId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "activityPackageId"
+          ],
+          "response": {
+            "$ref": "JasActivityCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "patch": {
+          "id": "jasify.activityPackages.patch",
+          "path": "activity-packages/{id}",
+          "httpMethod": "PATCH",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasActivityPackageRequest"
+          },
+          "response": {
+            "$ref": "JasActivityPackage"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.activityPackages.query",
+          "path": "activity-packages",
+          "httpMethod": "GET",
+          "parameters": {
+            "organizationId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "organizationId"
+          ],
+          "response": {
+            "$ref": "JasActivityPackageCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "remove": {
+          "id": "jasify.activityPackages.remove",
+          "path": "activity-packages/{id}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "removeActivity": {
+          "id": "jasify.activityPackages.removeActivity",
+          "path": "activity-packages-activity/{activityPackageId}/{activityId}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "activityId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "activityPackageId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "activityPackageId",
+            "activityId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "update": {
+          "id": "jasify.activityPackages.update",
+          "path": "activity-packages/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasActivityPackageRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasActivityPackage"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "activitySubscriptions": {
+      "methods": {
+        "add": {
+          "id": "jasify.activitySubscriptions.add",
+          "path": "activity-subscriptions",
+          "httpMethod": "POST",
+          "parameters": {
+            "activityId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            },
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "activityId",
+            "userId"
+          ],
+          "response": {
+            "$ref": "JasSubscription"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "cancel": {
+          "id": "jasify.activitySubscriptions.cancel",
+          "path": "activities/{id}/subscribers",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "subscriptionId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "id",
+            "subscriptionId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getForUser": {
+          "id": "jasify.activitySubscriptions.getForUser",
+          "path": "user-subscriptions",
+          "httpMethod": "GET",
+          "parameters": {
+            "fromDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            },
+            "toDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            },
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "userId"
+          ],
+          "response": {
+            "$ref": "JasUserSubscriptionCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.activitySubscriptions.query",
+          "path": "activity-subscriptions",
+          "httpMethod": "GET",
+          "parameters": {
+            "activityId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            },
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "activityId",
+            "userId"
+          ],
+          "response": {
+            "$ref": "JasSubscription"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "subscribers": {
+          "id": "jasify.activitySubscriptions.subscribers",
+          "path": "activities/{id}/subscribers",
+          "httpMethod": "GET",
+          "parameters": {
+            "activityId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "id",
+            "activityId"
+          ],
+          "response": {
+            "$ref": "JasSubscriptionCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "activityTypes": {
+      "methods": {
+        "add": {
+          "id": "jasify.activityTypes.add",
+          "path": "activity-types",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasAddActivityTypeRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasActivityType"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.activityTypes.get",
+          "path": "activity-types/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasActivityType"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "patch": {
+          "id": "jasify.activityTypes.patch",
+          "path": "activity-types/{id}",
+          "httpMethod": "PATCH",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasActivityType"
+          },
+          "response": {
+            "$ref": "JasActivityType"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.activityTypes.query",
+          "path": "activity-types",
+          "httpMethod": "GET",
+          "parameters": {
+            "organizationId": {
+              "type": "string",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "organizationId"
+          ],
+          "response": {
+            "$ref": "JasActivityTypeCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "remove": {
+          "id": "jasify.activityTypes.remove",
+          "path": "activity-types/{id}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "update": {
+          "id": "jasify.activityTypes.update",
+          "path": "activity-types/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasActivityType",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasActivityType"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "auth": {
+      "methods": {
+        "changePassword": {
+          "id": "jasify.auth.changePassword",
+          "path": "auth/change-password",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasChangePasswordRequest",
+            "parameterName": "resource"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "forgotPassword": {
+          "id": "jasify.auth.forgotPassword",
+          "path": "auth/forgot-password",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasForgotPasswordRequest",
+            "parameterName": "resource"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "login": {
+          "id": "jasify.auth.login",
+          "path": "auth/login",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasLoginRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasLoginResponse"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "logout": {
+          "id": "jasify.auth.logout",
+          "path": "auth/logout",
+          "httpMethod": "POST",
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "providerAuthenticate": {
+          "id": "jasify.auth.providerAuthenticate",
+          "path": "auth/provider-authenticate",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasProviderAuthenticateRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasProviderAuthenticateResponse"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "providerAuthorize": {
+          "id": "jasify.auth.providerAuthorize",
+          "path": "auth/provider-authorize",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasProviderAuthorizeRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasProviderAuthorizeResponse"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "recoverPassword": {
+          "id": "jasify.auth.recoverPassword",
+          "path": "auth/recover-password",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasRecoverPasswordRequest",
+            "parameterName": "resource"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "restore": {
+          "id": "jasify.auth.restore",
+          "path": "auth/restore",
+          "httpMethod": "GET",
+          "response": {
+            "$ref": "JasLoginResponse"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "balance": {
+      "methods": {
+        "cancelPayment": {
+          "id": "jasify.balance.cancelPayment",
+          "path": "balance/cancel-payment/{id}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "createCheckoutPayment": {
+          "id": "jasify.balance.createCheckoutPayment",
+          "path": "balance/create-checkout-payment",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasCheckoutPaymentRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasPaymentResponse"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "createPayment": {
+          "id": "jasify.balance.createPayment",
+          "path": "balance/create-payment",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasPaymentRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasPaymentResponse"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "executePayment": {
+          "id": "jasify.balance.executePayment",
+          "path": "balance/execute-payment/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "payerId": {
+              "type": "string",
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getAccount": {
+          "id": "jasify.balance.getAccount",
+          "path": "balance/account",
+          "httpMethod": "GET",
+          "response": {
+            "$ref": "JasAccount"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getAccounts": {
+          "id": "jasify.balance.getAccounts",
+          "path": "balance/accounts",
+          "httpMethod": "GET",
+          "response": {
+            "$ref": "JasAccountCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getTransactions": {
+          "id": "jasify.balance.getTransactions",
+          "path": "balance/transactions/{accountId}",
+          "httpMethod": "GET",
+          "parameters": {
+            "accountId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "limit": {
+              "type": "integer",
+              "format": "int32",
+              "location": "query"
+            },
+            "offset": {
+              "type": "integer",
+              "format": "int32",
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "accountId"
+          ],
+          "response": {
+            "$ref": "JasTransactionList"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "carts": {
+      "methods": {
+        "addUserActivity": {
+          "id": "jasify.carts.addUserActivity",
+          "path": "carts/user/activity/{activityId}",
+          "httpMethod": "POST",
+          "parameters": {
+            "activityId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "activityId"
+          ],
+          "response": {
+            "$ref": "ShoppingCart"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "addUserActivityPackage": {
+          "id": "jasify.carts.addUserActivityPackage",
+          "path": "carts/user/activity-package/{activityPackageId}",
+          "httpMethod": "POST",
+          "parameters": {
+            "activityPackageId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "activityPackageId"
+          ],
+          "request": {
+            "$ref": "JasActivityPackageSubscription",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "ShoppingCart"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "anonymousCartToUserCart": {
+          "id": "jasify.carts.anonymousCartToUserCart",
+          "path": "carts/anonymous/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "clearUserCart": {
+          "id": "jasify.carts.clearUserCart",
+          "path": "carts/user",
+          "httpMethod": "DELETE",
+          "response": {
+            "$ref": "ShoppingCart"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "createAnonymousCart": {
+          "id": "jasify.carts.createAnonymousCart",
+          "path": "carts/anonymous",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasNewShoppingCartRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "ShoppingCart"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.carts.get",
+          "path": "carts/anonymous/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "ShoppingCart"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getItem": {
+          "id": "jasify.carts.getItem",
+          "path": "carts/{cartId}/{ordinal}",
+          "httpMethod": "GET",
+          "parameters": {
+            "cartId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "ordinal": {
+              "type": "integer",
+              "required": true,
+              "format": "int32",
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "cartId",
+            "ordinal"
+          ],
+          "response": {
+            "$ref": "JasItemDetails"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getUserCart": {
+          "id": "jasify.carts.getUserCart",
+          "path": "carts/user",
+          "httpMethod": "GET",
+          "response": {
+            "$ref": "ShoppingCart"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "removeItem": {
+          "id": "jasify.carts.removeItem",
+          "path": "carts/{cartId}/{ordinal}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "cartId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "ordinal": {
+              "type": "integer",
+              "required": true,
+              "format": "int32",
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "cartId",
+            "ordinal"
+          ],
+          "response": {
+            "$ref": "ShoppingCart"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "groups": {
+      "methods": {
+        "add": {
+          "id": "jasify.groups.add",
+          "path": "groups",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasGroup",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasGroup"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "addUser": {
+          "id": "jasify.groups.addUser",
+          "path": "groups/{groupId}/users/{userId}",
+          "httpMethod": "POST",
+          "parameters": {
+            "groupId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "groupId",
+            "userId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.groups.get",
+          "path": "groups/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasGroup"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "patch": {
+          "id": "jasify.groups.patch",
+          "path": "groups/{id}",
+          "httpMethod": "PATCH",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasGroup"
+          },
+          "response": {
+            "$ref": "JasGroup"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.groups.query",
+          "path": "groups",
+          "httpMethod": "GET",
+          "response": {
+            "$ref": "JasGroupCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "remove": {
+          "id": "jasify.groups.remove",
+          "path": "groups/{id}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "removeUser": {
+          "id": "jasify.groups.removeUser",
+          "path": "groups/{groupId}/users/{userId}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "groupId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "groupId",
+            "userId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "update": {
+          "id": "jasify.groups.update",
+          "path": "groups/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasGroup",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasGroup"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "users": {
+          "id": "jasify.groups.users",
+          "path": "group-users/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasUserCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "histories": {
+      "methods": {
+        "query": {
+          "id": "jasify.histories.query",
+          "path": "histories",
+          "httpMethod": "GET",
+          "parameters": {
+            "fromDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            },
+            "toDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            }
+          },
+          "response": {
+            "$ref": "JasHistoryCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "organizations": {
+      "methods": {
+        "add": {
+          "id": "jasify.organizations.add",
+          "path": "organizations",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasOrganization",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasOrganization"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "addGroup": {
+          "id": "jasify.organizations.addGroup",
+          "path": "organizations/{organizationId}/groups/{groupId}",
+          "httpMethod": "POST",
+          "parameters": {
+            "groupId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "organizationId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "organizationId",
+            "groupId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "addUser": {
+          "id": "jasify.organizations.addUser",
+          "path": "organizations/{organizationId}/users/{userId}",
+          "httpMethod": "POST",
+          "parameters": {
+            "organizationId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "organizationId",
+            "userId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.organizations.get",
+          "path": "organizations/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasOrganization"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "groups": {
+          "id": "jasify.organizations.groups",
+          "path": "organization-groups/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasGroupCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "patch": {
+          "id": "jasify.organizations.patch",
+          "path": "organizations/{id}",
+          "httpMethod": "PATCH",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasOrganization"
+          },
+          "response": {
+            "$ref": "JasOrganization"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.organizations.query",
+          "path": "organizations",
+          "httpMethod": "GET",
+          "response": {
+            "$ref": "JasOrganizationCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "queryPublic": {
+          "id": "jasify.organizations.queryPublic",
+          "path": "organizations-public",
+          "httpMethod": "GET",
+          "response": {
+            "$ref": "JasOrganizationCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "remove": {
+          "id": "jasify.organizations.remove",
+          "path": "organizations/{id}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "removeGroup": {
+          "id": "jasify.organizations.removeGroup",
+          "path": "organizations/{organizationId}/groups/{groupId}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "groupId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "organizationId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "organizationId",
+            "groupId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "removeUser": {
+          "id": "jasify.organizations.removeUser",
+          "path": "organizations/{organizationId}/users/{userId}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "organizationId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            },
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "organizationId",
+            "userId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "update": {
+          "id": "jasify.organizations.update",
+          "path": "organizations/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasOrganization",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasOrganization"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "users": {
+          "id": "jasify.organizations.users",
+          "path": "organization-users/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasUserCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "payments": {
+      "methods": {
+        "cancelPayment": {
+          "id": "jasify.payments.cancelPayment",
+          "path": "payments-cancel/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasPayment"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "executePayment": {
+          "id": "jasify.payments.executePayment",
+          "path": "payments-execute/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasPayment"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.payments.get",
+          "path": "payments/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasPayment"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "getPaymentInvoice": {
+          "id": "jasify.payments.getPaymentInvoice",
+          "path": "payment-invoices/{paymentId}",
+          "httpMethod": "GET",
+          "parameters": {
+            "paymentId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "paymentId"
+          ],
+          "response": {
+            "$ref": "JasInvoice"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.payments.query",
+          "path": "payments",
+          "httpMethod": "GET",
+          "parameters": {
+            "fromDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "Canceled",
+                "Completed",
+                "Created",
+                "New"
+              ],
+              "enumDescriptions": [
+                "",
+                "",
+                "",
+                ""
+              ],
+              "location": "query"
+            },
+            "toDate": {
+              "type": "string",
+              "format": "date-time",
+              "location": "query"
+            }
+          },
+          "response": {
+            "$ref": "JasPaymentCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "queryByReferenceCode": {
+          "id": "jasify.payments.queryByReferenceCode",
+          "path": "payments-reference-code/{referenceCode}",
+          "httpMethod": "GET",
+          "parameters": {
+            "referenceCode": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "referenceCode"
+          ],
+          "response": {
+            "$ref": "JasPaymentCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "unique": {
+      "methods": {
+        "email": {
+          "id": "jasify.unique.email",
+          "path": "unique/email/{email}",
+          "httpMethod": "GET",
+          "parameters": {
+            "email": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "email"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "username": {
+          "id": "jasify.unique.username",
+          "path": "unique/username/{username}",
+          "httpMethod": "GET",
+          "parameters": {
+            "username": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "username"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "userLogins": {
+      "methods": {
+        "list": {
+          "id": "jasify.userLogins.list",
+          "path": "user-logins/{userId}",
+          "httpMethod": "GET",
+          "parameters": {
+            "userId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "userId"
+          ],
+          "response": {
+            "$ref": "JasUserLoginCollection"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "remove": {
+          "id": "jasify.userLogins.remove",
+          "path": "user-logins/{loginId}",
+          "httpMethod": "DELETE",
+          "parameters": {
+            "loginId": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "loginId"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    },
+    "users": {
+      "methods": {
+        "add": {
+          "id": "jasify.users.add",
+          "path": "users",
+          "httpMethod": "POST",
+          "request": {
+            "$ref": "JasAddUserRequest",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasUser"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "get": {
+          "id": "jasify.users.get",
+          "path": "users/{id}",
+          "httpMethod": "GET",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "response": {
+            "$ref": "JasUser"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "patch": {
+          "id": "jasify.users.patch",
+          "path": "users/{id}",
+          "httpMethod": "PATCH",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasUser"
+          },
+          "response": {
+            "$ref": "JasUser"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "query": {
+          "id": "jasify.users.query",
+          "path": "users",
+          "httpMethod": "GET",
+          "parameters": {
+            "field": {
+              "type": "string",
+              "location": "query"
+            },
+            "limit": {
+              "type": "integer",
+              "format": "int32",
+              "location": "query"
+            },
+            "offset": {
+              "type": "integer",
+              "format": "int32",
+              "location": "query"
+            },
+            "order": {
+              "type": "string",
+              "enum": [
+                "ASCENDING",
+                "DESCENDING"
+              ],
+              "enumDescriptions": [
+                "",
+                ""
+              ],
+              "location": "query"
+            },
+            "orderBy": {
+              "type": "string",
+              "location": "query"
+            },
+            "query": {
+              "type": "string",
+              "location": "query"
+            }
+          },
+          "response": {
+            "$ref": "JasUserList"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        },
+        "update": {
+          "id": "jasify.users.update",
+          "path": "users/{id}",
+          "httpMethod": "PUT",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "parameterOrder": [
+            "id"
+          ],
+          "request": {
+            "$ref": "JasUser",
+            "parameterName": "resource"
+          },
+          "response": {
+            "$ref": "JasUser"
+          },
+          "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email"
+          ]
+        }
+      }
+    }
+  }
+}
