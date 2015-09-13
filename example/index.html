@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app="example">
+<head>
+    <meta charset="utf-8">
+    <title>{{vm.title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="client.js"></script>
+</head>
+<body ng-controller="AppController as vm">
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <h4>{{vm.title}}</h4>
+        <pre>{{vm.result|json}}</pre>
+        <p ng-if="vm.failure" class="text-danger">{{vm.failure}}</p>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

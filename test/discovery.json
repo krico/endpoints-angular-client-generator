@@ -20,7 +20,56 @@
   "batchPath": "batch",
   "parameters": {},
   "auth": {},
-  "schemas": {},
-  "methods": {},
-  "resources": {}
+  "schemas": {
+    "test": {"id": "test"},
+    "ApiInfo": {
+      "id": "ApiInfo",
+      "type": "object",
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "apiVersion": {
+          "type": "string"
+        },
+        "authenticated": {
+          "type": "boolean"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "orgMember": {
+          "type": "boolean"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "timestampVersion": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "methods": {
+    "test": {"id": "test"},
+    "apiInfo": {
+      "id": "brain.apiInfo",
+      "path": "api-info",
+      "httpMethod": "GET",
+      "response": {
+        "$ref": "ApiInfo"
+      },
+      "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+      ]
+    }
+  },
+  "resources": {"test": {"id": "test"}}
 }
