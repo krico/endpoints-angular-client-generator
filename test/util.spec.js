@@ -14,4 +14,22 @@ describe('Util', function () {
         expect(Util.arrayParam(['a'])).to.eql(['a']);
         expect(Util.arrayParam(['a', 'b'])).to.eql(['a', 'b']);
     });
+
+    it('should make first letter capital with ucFirst', function () {
+        expect(Util.ucFirst('')).to.equal('');
+        expect(Util.ucFirst('a')).to.equal('A');
+        expect(Util.ucFirst('A')).to.equal('A');
+        expect(Util.ucFirst('abc')).to.equal('Abc');
+        expect(Util.ucFirst('Abc')).to.equal('Abc');
+        expect(Util.ucFirst('ABC')).to.equal('ABC');
+    });
+
+    it('should make first letter lowercase with lcFirst', function () {
+        expect(Util.lcFirst('')).to.equal('');
+        expect(Util.lcFirst('a')).to.equal('a');
+        expect(Util.lcFirst('A')).to.equal('a');
+        expect(Util.lcFirst('abc')).to.equal('abc');
+        expect(Util.lcFirst('Abc')).to.equal('abc');
+        expect(Util.lcFirst('ABC')).to.equal('aBC');
+    });
 });

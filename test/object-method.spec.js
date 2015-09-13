@@ -15,6 +15,13 @@ describe('ObjectMethod', function () {
         done();
     });
 
+    it('should allow for a different variable for itself', function (done) {
+        var out = new streams.WritableStream();
+        new ObjectMethod('myMethod', [], [], 'me').write(out);
+        expect(out.toString()).to.equal('me.myMethod=myMethod;function myMethod(){}');
+        done();
+    });
+
     it('should support parameters as single', function (done) {
         var out = new streams.WritableStream();
         new ObjectMethod('myMethod', 'p1').write(out);
