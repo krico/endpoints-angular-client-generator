@@ -11,6 +11,7 @@ describe('Resource', function () {
 
     it('should be an object', function () {
         assert.equal(typeof(new Resource()), 'object');
+        assert.equal((new Resource()).constructor, Resource);
     });
 
     it('should always define a discovery document', function () {
