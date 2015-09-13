@@ -10,6 +10,6 @@ var Generator = require(path.dirname(__filename) + '/../lib/generator');
 describe('Generator', function () {
 
     it('should generate', function (done) {
-        Generator.generate(DISCOVERY_FILE, process.stderr, done);
+        Generator.generate(DISCOVERY_FILE, process.stdout, done);
     });
 });

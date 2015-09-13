@@ -31,6 +31,7 @@
     "mocha": "^2.3.2"
   },
   "dependencies": {
+    "js-beautify": "^1.5.10",
     "memory-streams": "^0.1.0",
     "winston": "^1.0.1"
   }
