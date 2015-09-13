@@ -3,3 +3,4 @@ endpoints-angular-client-generator.iml
 .idea
 npm-debug.log
 node_modules
+build
