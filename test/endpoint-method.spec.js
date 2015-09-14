@@ -2,7 +2,6 @@ var path = require('path');
 var chai = require('chai');
 var assert = chai.assert;
 var expect = chai.expect;
-var streams = require('memory-streams');
 
 var Context = require(path.dirname(__filename) + '/../lib/context');
 var EndpointMethod = require(path.dirname(__filename) + '/../lib/endpoint-method');
