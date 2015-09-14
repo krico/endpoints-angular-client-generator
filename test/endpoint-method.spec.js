@@ -6,14 +6,14 @@ var streams = require('memory-streams');
 
 var Context = require(path.dirname(__filename) + '/../lib/context');
 var EndpointMethod = require(path.dirname(__filename) + '/../lib/endpoint-method');
-var Resource = require(path.dirname(__filename) + '/../lib/resource');
+var RestDescription = require(path.dirname(__filename) + '/../lib/rest-description');
 
 var DISCOVERY_FILE = path.dirname(__filename) + '/discovery.json';
 
 describe('EndpointMethod', function () {
 
     beforeEach(function () {
-        Context.set('resource', new Resource(DISCOVERY_FILE));
+        Context.restDescription(new RestDescription(DISCOVERY_FILE));
     });
 
     it('should pass creation', function () {

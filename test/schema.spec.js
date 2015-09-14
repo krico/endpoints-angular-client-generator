@@ -3,7 +3,7 @@ var chai = require('chai');
 var assert = chai.assert;
 var expect = chai.expect;
 
-var Resource = require(path.dirname(__filename) + '/../lib/resource');
+var RestDescription = require(path.dirname(__filename) + '/../lib/rest-description');
 var Schema = require(path.dirname(__filename) + '/../lib/schema');
 var Context = require(path.dirname(__filename) + '/../lib/context');
 
@@ -11,7 +11,7 @@ var DISCOVERY_FILE = path.dirname(__filename) + '/discovery.json';
 
 describe('EndpointResource', function () {
     beforeEach(function () {
-        Context.set('resource', new Resource(DISCOVERY_FILE));
+        Context.set('resource', new RestDescription(DISCOVERY_FILE));
     });
 
     it('should pass creation', function () {
