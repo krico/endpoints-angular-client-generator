@@ -6,7 +6,7 @@ var streams = require('memory-streams');
 
 var CodeWriter = require(path.dirname(__filename) + '/../lib/code-writer');
 
-describe('CodeWriter', function () {
+describe('ObjectWriter', function () {
     var out;
 
     beforeEach(function () {
@@ -59,6 +59,23 @@ describe('CodeWriter', function () {
             .prepend('test0;')
             .write(out);
         expect(out.toString()).to.equal('test0;test1;test2;test3;test4;test5;');
+    });
+
+    it('should setParent on appended writers', function () {
+        var w1 = {
+            setParent: function (p) {
+                w1.p = p;
+            }
+        };
+        var w2 = {
+            setParent: function (p) {
+                w2.p = p;
+            }
+        };
+        var codeWriter = new CodeWriter();
+        codeWriter.append(w1).prepend(w2);
+        expect(w1.p).to.equal(codeWriter);
+        expect(w2.p).to.equal(codeWriter);
     });
 
 
