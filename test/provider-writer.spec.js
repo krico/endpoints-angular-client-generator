@@ -12,15 +12,15 @@ describe('ProviderWriter', function () {
         var out = new streams.WritableStream();
         new ProviderWriter().setName('MyService').setModule('myMod').write(out);
         expect(out.toString()).to.equal('angular.module(\'myMod\').provider(\'MyService\',MyServiceProvider);' +
-        'function MyServiceProvider(){}');
+        'function MyServiceProvider(){this.$get=function(){var svc={};return svc;};}');
         done();
     });
 
     it('should support writers', function (done) {
         var out = new streams.WritableStream();
-        new ProviderWriter().setName('MyService').setModule('myMod').append('this.$get=function(){};').write(out);
+        new ProviderWriter().setName('MyService').setModule('myMod').append('this.test=function(){};').write(out);
         expect(out.toString()).to.equal('angular.module(\'myMod\').provider(\'MyService\',MyServiceProvider);' +
-        'function MyServiceProvider(){this.$get=function(){};}');
+        'function MyServiceProvider(){this.$get=function(){var svc={};return svc;};this.test=function(){};}');
         done();
     });
 });

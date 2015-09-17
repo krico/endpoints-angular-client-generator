@@ -14,6 +14,6 @@ describe('Generator', function () {
         var out = new streams.WritableStream();
 
         Generator.generate(DISCOVERY_FILE, out, done);
-        //console.log(out.toString());
+        console.log(out.toString());
     });
 });
