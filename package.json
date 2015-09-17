@@ -33,6 +33,7 @@
   "dependencies": {
     "js-beautify": "^1.5.10",
     "memory-streams": "^0.1.0",
+    "sprintf-js": "^1.0.3",
     "winston": "^1.0.1"
   }
 }
