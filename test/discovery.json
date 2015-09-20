@@ -71,5 +71,7 @@
       ]
     }
   },
-  "resources": {"test": {"id": "test"}}
+  "resources": {
+    "test": {"id": "test"}
+  }
 }
