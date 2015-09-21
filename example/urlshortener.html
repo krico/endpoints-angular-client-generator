@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="example">
+<head>
+    <meta charset="utf-8">
+    <title>{{vm.title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-sanitize.min.js"></script>
+</head>
+<body ng-controller="AppController as vm">
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <h4>{{vm.title}}</h4>
+
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="longUrl">URL: </label>
+                <input type="text" id="longUrl" class="form-control" ng-model="vm.longUrl">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="vm.debug"> debug
+                </label>
+            </div>
+            <button type="button" ng-click="vm.shorten()">Shorten!</button>
+            <div ng-show="vm.shortUrl">
+                <label>Shortened: </label>
+                <a ng-show="vm.shortUrl" ng-href="{{vm.shortUrl}}">{{vm.shortUrl}}</a>
+            </div>
+        </form>
+        <!-- BEGIN DEBUG -->
+        <div ng-if="vm.debug">
+            <hr/>
+            <h4>vm.response</h4>
+            <pre>{{vm.response|json}}</pre>
+        </div>
+    </div>
+</div>
+
+<script src="urlshortener-client.js"></script>
+<script src="urlshortener-app.js"></script>
+</body>
+</html>

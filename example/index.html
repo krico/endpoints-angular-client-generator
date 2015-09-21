@@ -1,72 +1,19 @@
 <!doctype html>
-<html lang="en" ng-app="example">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{vm.title}}</title>
+    <title>Examples</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-sanitize.min.js"></script>
 </head>
-<body ng-controller="AppController as vm">
+<body>
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-        <h4>{{vm.title}}</h4>
-
-        <p ng-if="vm.failure" class="text-danger">{{vm.failure}}</p>
-
-        <form class="form-inline">
-            <div class="form-group">
-                <label class="sr-only" for="api">API: </label>
-                <select id="api" class="form-control" ng-model="vm.selectedApi"
-                        ng-options="api.title for api in vm.apis">
-                    <option value="">-- select an API --</option>
-                </select>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" ng-model="vm.preferred" ng-change="vm.list()"> only preferred
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" ng-model="vm.debug"> debug
-                </label>
-            </div>
-        </form>
-
-        <div ng-show="vm.selectedApi" class="col-sm-12">
-            <h3><img ng-src="{{vm.selectedApi.icons.x32}}" border="0"/> {{vm.selectedApi.title}}
-                <small>(version: {{vm.selectedApi.version}}) name: {{vm.selectedApi.name}}</small>
-            </h3>
-
-            <p>
-                {{vm.selectedApi.description}}.<br/>
-                <a ng-href="{{vm.selectedApi.documentationLink}}" target="_blank">
-                    view documentation
-                </a>
-                <br/>
-                <a ng-href="{{vm.selectedApi.discoveryRestUrl}}" target="_blank">
-                    download discovery document
-                </a>
-            </p>
-
-            <h4>Discovery Document</h4>
-            <pre ng-show="vm.discoveryDocument!=null" ng-bind-html="vm.discoveryDocument|prettyJSON"></pre>
-        </div>
-
-
-        <!-- BEGIN DEBUG -->
-        <div ng-if="vm.debug">
-            <hr/>
-            <h4>vm.selectedApi</h4>
-            <pre>{{vm.selectedApi|json}}</pre>
-            <h4>Discovery.apis.list() ({{vm.apis.length}} entries)</h4>
-            <pre>{{vm.apisResponse|json}}</pre>
-        </div>
+        <h4>Examples</h4>
+        <ul>
+            <li><a href="discovery.html">Discovery</a></li>
+            <li><a href="urlshortener.html">URL Shortener</a></li>
+        </ul>
     </div>
 </div>
-
-<script src="discovery-client.js"></script>
-<script src="app.js"></script>
 </body>
 </html>
