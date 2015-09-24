@@ -9,6 +9,7 @@
     "endpoints-angular-client-generator": "./bin/endpoints-angular-client-generator.js"
   },
   "scripts": {
+    "examples": "./scripts/generate-examples.sh",
     "pretest": "npm install",
     "test": "mocha --reporter spec",
     "test-dev": "mocha --watch --reporter spec"

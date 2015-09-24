@@ -5,7 +5,7 @@ var expect = chai.expect;
 var streams = require('memory-streams');
 
 var DISCOVERY_FILE = path.dirname(__filename) + '/discovery.json';
-var DISCOVERY_DISCOVERY_FILE = path.dirname(__filename) + '/../doc/discovery-v1-discovery.json';
+var DISCOVERY_DISCOVERY_FILE = path.dirname(__filename) + '/../discovery/discovery-v1.discovery.json';
 
 var Generator = require(path.dirname(__filename) + '/../lib/generator');
 var Context = require(path.dirname(__filename) + '/../lib/context');
