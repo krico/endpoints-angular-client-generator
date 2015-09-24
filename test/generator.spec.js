@@ -21,7 +21,7 @@ describe('Generator', function () {
         var out = new streams.WritableStream();
 
         Generator.generate(DISCOVERY_FILE, out, done);
-        //console.log(out.toString());
+        done();
     });
 
     it('should generate discovery api', function (done) {
@@ -29,5 +29,6 @@ describe('Generator', function () {
 
         Generator.generate(DISCOVERY_DISCOVERY_FILE, out, done);
         console.log(out.toString());
+        done();
     });
 });
