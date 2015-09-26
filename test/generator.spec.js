@@ -17,17 +17,27 @@ describe('Generator', function () {
         Context.restDescription(new RestDescription(DISCOVERY_FILE));
     });
 
+    it('should start with default config', function () {
+        expect(new Generator(new RestDescription()).config.beautify).to.equal(true);
+    });
+
+    it('should override defaults with constructor', function () {
+        expect(new Generator(new RestDescription(), {beautify: false}).config.beautify).to.equal(false);
+    });
+
     it('should generate', function (done) {
         var out = new streams.WritableStream();
+        var generator = new Generator(DISCOVERY_FILE, {output: out});
 
-        Generator.generate(DISCOVERY_FILE, out, done);
+        generator.generate(done);
         done();
     });
 
     it('should generate discovery api', function (done) {
         var out = new streams.WritableStream();
+        var generator = new Generator({document: DISCOVERY_DISCOVERY_FILE, output: out});
 
-        Generator.generate(DISCOVERY_DISCOVERY_FILE, out, done);
+        generator.generate(done);
         console.log(out.toString());
         done();
     });

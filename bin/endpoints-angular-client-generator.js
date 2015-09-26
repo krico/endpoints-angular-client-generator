@@ -81,10 +81,10 @@ info('\tId      : ' + restDescription.id());
 info('\tName    : ' + restDescription.name());
 info('\tVersion : ' + restDescription.version());
 
-var outFile = path.join(config.output, restDescription.name() + '.js');
-info('Writing: \'' + outFile + '\'');
-var out = fs.createWriteStream(outFile);
-
-Generator.generate(restDescription, out, function (e) {
-    info('Wrote  : \'' + outFile + '\'' + (e ? ': ' + e : ''));
+var generator = new Generator(restDescription, config);
+generator.generate(function (e) {
+    if (e) {
+        log.warn('Failed to generate: ' + e);
+        process.exit(3);
+    }
 });
