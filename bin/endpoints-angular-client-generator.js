@@ -22,6 +22,7 @@ program
     .usage('[options] -d <file> -o <file>')
     .option('-d, --document <file>', 'Read discovery document from <file>', document)
     .option('-o, --output-dir <dir>', 'Write generated code files to <dir>', output)
+    .option('-s, --split-module', 'Split generated code into two files, one for the module another for provider')
     .parse(process.argv);
 
 function info(msg) {
@@ -66,6 +67,8 @@ log.debug('Started generation of [' + config.document + ']');
 
 checkDocument();
 checkOutput();
+
+config.splitModule = program.splitModule;
 
 log.debug('Reading RestDescription from [' + config.document + ']');
 var restDescription = new RestDescription(config.document);
