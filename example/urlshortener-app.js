@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    var example = angular.module('example', ['ngSanitize', 'urlshortener']);
+    var example = angular.module('example', ['ngSanitize', 'urlshortener.endpoint']);
 
     example.config(function (UrlshortenerProvider) {
         UrlshortenerProvider.setApiKey('AIzaSyD6J4xNj5YjjFYiea2qRmp76JgGz1iasNA');
