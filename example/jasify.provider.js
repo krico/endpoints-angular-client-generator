@@ -1,9 +1,8 @@
 (function(angular) {
   'use strict';
-  angular.module('jasify', ['ng']);
-  angular.module('jasify').provider('Jasify', JasifyProvider);
+  angular.module('jasifyEndpoint').provider('Jas', JasProvider);
 
-  function JasifyProvider() {
+  function JasProvider() {
     var provider = this;
     provider.config = {
       apiRoot: 'https://jasify-schedule.appspot.com/_ah/api/jasify/v1/',

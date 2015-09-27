@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
-  angular.module('discovery', ['ng']);
-  angular.module('discovery').provider('Discovery', DiscoveryProvider);
+  angular.module('discovery.endpoint', ['ng']);
+  angular.module('discovery.endpoint').provider('Discovery', DiscoveryProvider);
 
   function DiscoveryProvider() {
     var provider = this;

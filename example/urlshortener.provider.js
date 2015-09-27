@@ -1,6 +1,6 @@
 (function(angular) {
   'use strict';
-  angular.module('urlshortener').provider('Urlshortener', UrlshortenerProvider);
+  angular.module('urlshortener.endpoint').provider('Urlshortener', UrlshortenerProvider);
 
   function UrlshortenerProvider() {
     var provider = this;
