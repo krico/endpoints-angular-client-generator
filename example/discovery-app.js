@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    var example = angular.module('example', ['ngSanitize', 'discovery']);
+    var example = angular.module('example', ['ngSanitize', 'discovery.endpoint']);
 
     example.config(function (DiscoveryProvider) {
         //DiscoveryProvider.apiRoot('https://localhost:8080/_ah/api/jasify/v1/');

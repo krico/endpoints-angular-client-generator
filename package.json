@@ -1,6 +1,6 @@
 {
   "name": "endpoints-angular-client-generator",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "NodeJS module that generates a pure AngularJS javascript client based on your google endpoints service",
   "homepage": "https://github.com/krico/endpoints-angular-client-generator",
   "preferGlobal": true,
@@ -9,6 +9,7 @@
     "endpoints-angular-client-generator": "./bin/endpoints-angular-client-generator.js"
   },
   "scripts": {
+    "examples": "./scripts/generate-examples.sh",
     "pretest": "npm install",
     "test": "mocha --reporter spec",
     "test-dev": "mocha --watch --reporter spec"
@@ -37,8 +38,11 @@
   "dependencies": {
     "change-case": "^2.3.0",
     "commander": "^2.8.1",
+    "extend": "^3.0.0",
+    "is-url": "^1.2.1",
     "js-beautify": "^1.5.10",
     "memory-streams": "^0.1.0",
+    "request": "^2.64.0",
     "sprintf-js": "^1.0.3",
     "winston": "^1.0.1"
   }
