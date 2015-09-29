@@ -38,8 +38,8 @@ describe('ProviderWriter', function () {
 
         expect(out.toString()).to.equal('angular.module(\'myMod\').provider(\'MyService\',MyServiceProvider);' +
         'function MyServiceProvider(){var provider=this;provider.config={foo:\'bar\',bar:foo};' +
-        'provider.foo=function(v){if(angular.isDefined(v))provider.config.foo=v;return provider.config.foo;};' +
-        'provider.bar=function(v){if(angular.isDefined(v))provider.config.bar=v;return provider.config.bar;};' +
+        'provider.foo=function(v){if(angular.isDefined(v)){provider.config.foo=v;}return provider.config.foo;};' +
+        'provider.bar=function(v){if(angular.isDefined(v)){provider.config.bar=v;}return provider.config.bar;};' +
         'provider.$get=function($http){var svc={};return svc;};}');
         done();
     });

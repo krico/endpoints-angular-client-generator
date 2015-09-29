@@ -11,14 +11,14 @@ describe('Iife', function () {
     it('should write its canonical form to stream', function (done) {
         var out = new streams.WritableStream();
         new Iife().setStrict(false).write(out);
-        expect(out.toString()).to.equal('(function(){})();');
+        expect(out.toString()).to.equal('(function(){}());');
         done();
     });
 
     it('should support global variables as array when writing to stream', function (done) {
         var out = new streams.WritableStream();
         new Iife().setStrict(false).addGlobal(['a', 'b']).write(out);
-        expect(out.toString()).to.equal('(function(a,b){})(a,b);');
+        expect(out.toString()).to.equal('/*global a,b*/\n(function(a,b){}(a,b));');
         done();
     });
 
@@ -37,20 +37,20 @@ describe('Iife', function () {
             }
         };
         new Iife().setStrict(false).append([w1, w2]).write(out);
-        expect(out.toString()).to.equal('(function(){' + s1 + s2 + '})();');
+        expect(out.toString()).to.equal('(function(){' + s1 + s2 + '}());');
         done();
     });
 
     it('should use strict', function () {
         var out = new streams.WritableStream();
         new Iife().setStrict(true).write(out);
-        expect(out.toString()).to.equal('(function(){\'use strict\';})();');
+        expect(out.toString()).to.equal('(function(){\'use strict\';}());');
     });
 
     it('should use strict with writers and globals', function () {
         var out = new streams.WritableStream();
         new Iife().setStrict(true).append('a;').addGlobal('g').write(out);
-        expect(out.toString()).to.equal('(function(g){\'use strict\';a;})(g);');
+        expect(out.toString()).to.equal('/*global g*/\n(function(g){\'use strict\';a;}(g));');
     });
 
     it('should support different combinations on constructor', function (done) {
@@ -68,7 +68,7 @@ describe('Iife', function () {
         };
         var out = new streams.WritableStream();
         new Iife().setStrict(false).append([w1, w2]).setGlobals(['a', 'b']).write(out);
-        expect(out.toString()).to.equal('(function(a,b){' + s1 + s2 + '})(a,b);');
+        expect(out.toString()).to.equal('/*global a,b*/\n(function(a,b){' + s1 + s2 + '}(a,b));');
 
         done();
     });
