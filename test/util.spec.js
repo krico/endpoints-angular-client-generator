@@ -32,4 +32,8 @@ describe('Util', function () {
         expect(Util.lcFirst('Abc')).to.equal('abc');
         expect(Util.lcFirst('ABC')).to.equal('aBC');
     });
+    it('should know reserved words', function () {
+        expect(Util.isReserved('foo')).to.equal(false);
+        expect(Util.isReserved('delete')).to.equal(true);
+    });
 });
